@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://bh2pcfvgbsxau"]
+
+[ext_resource type="Texture2D" uid="uid://dcjq08n8gtm0i" path="res://assets/1000w/eye.png" id="1_lyot2"]
+[ext_resource type="Script" path="res://main.gd" id="1_mjl4v"]
+[ext_resource type="Texture2D" uid="uid://42eryhkqlb8o" path="res://assets/1000w/skull.png" id="1_mxuqt"]
+[ext_resource type="Texture2D" uid="uid://c11dhlc7jialf" path="res://assets/1000w/jaw.png" id="2_si6pl"]
+[ext_resource type="Texture2D" uid="uid://dq17abn6dlyje" path="res://assets/1000w/mouthbg.png" id="3_4hid5"]
+[ext_resource type="Texture2D" uid="uid://bku4wgvmbjkwk" path="res://assets/1000w/bone100.png" id="5_w54mx"]
+[ext_resource type="Script" path="res://bone_100.gd" id="7_o837y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88bw0"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_mjl4v")
+
+[node name="Mouth" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(829.649, 447.5)
+scale = Vector2(0.275297, 0.222577)
+texture = ExtResource("3_4hid5")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 702.0
+offset_top = 221.0
+offset_right = 992.0
+offset_bottom = 343.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_88bw0")
+
+[node name="Jaw" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(831, 419)
+scale = Vector2(0.310935, 0.310935)
+texture = ExtResource("2_si6pl")
+
+[node name="EyeL" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(759.111, 311.375)
+scale = Vector2(0.0677778, 0.0677778)
+texture = ExtResource("1_lyot2")
+
+[node name="EyeR" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(923, 308)
+scale = Vector2(0.0633326, 0.0633326)
+texture = ExtResource("1_lyot2")
+
+[node name="Skull" type="Sprite2D" parent="."]
+position = Vector2(853, 285)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_mxuqt")
+
+[node name="Bone" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1554.0
+offset_top = 586.0
+offset_right = 1808.0
+offset_bottom = 853.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_o837y")
+metadata/_edit_group_ = true
+
+[node name="Bone100" type="Sprite2D" parent="Bone"]
+position = Vector2(129.14, 129.583)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_w54mx")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bh2pcfvgbsxau"]
+
+[ext_resource type="Texture2D" uid="uid://dcjq08n8gtm0i" path="res://assets/1000w/eye.png" id="1_lyot2"]
+[ext_resource type="Script" path="res://main.gd" id="1_mjl4v"]
+[ext_resource type="Texture2D" uid="uid://42eryhkqlb8o" path="res://assets/1000w/skull.png" id="1_mxuqt"]
+[ext_resource type="Texture2D" uid="uid://c11dhlc7jialf" path="res://assets/1000w/jaw.png" id="2_si6pl"]
+[ext_resource type="Texture2D" uid="uid://dq17abn6dlyje" path="res://assets/1000w/mouthbg.png" id="3_4hid5"]
+[ext_resource type="Texture2D" uid="uid://bku4wgvmbjkwk" path="res://assets/1000w/bone100.png" id="5_w54mx"]
+[ext_resource type="Script" path="res://bone_100.gd" id="7_o837y"]
+
+[node name="main" type="Node2D"]
+scale = Vector2(0.45, 0.45)
+script = ExtResource("1_mjl4v")
+
+[node name="Mouthbg" type="Sprite2D" parent="."]
+position = Vector2(1095.28, 1326.58)
+scale = Vector2(0.529445, 0.520823)
+texture = ExtResource("3_4hid5")
+
+[node name="Jaw" type="Sprite2D" parent="."]
+position = Vector2(1086.06, 1182.22)
+scale = Vector2(0.538783, 0.538783)
+texture = ExtResource("2_si6pl")
+
+[node name="Eye" type="Sprite2D" parent="."]
+position = Vector2(1017.78, 960)
+scale = Vector2(0.0955556, 0.0955556)
+texture = ExtResource("1_lyot2")
+
+[node name="Eye2" type="Sprite2D" parent="."]
+position = Vector2(1328.89, 986.667)
+scale = Vector2(0.0966655, 0.0966655)
+texture = ExtResource("1_lyot2")
+
+[node name="Skull" type="Sprite2D" parent="."]
+position = Vector2(1136.67, 933.334)
+scale = Vector2(0.766682, 0.766682)
+texture = ExtResource("1_mxuqt")
+
+[node name="Bone" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3071.11
+offset_top = 1471.11
+offset_right = 3553.11
+offset_bottom = 1949.11
+script = ExtResource("7_o837y")
+
+[node name="Bone100" type="Sprite2D" parent="Bone"]
+position = Vector2(240.222, 237.333)
+scale = Vector2(0.410653, 0.410653)
+texture = ExtResource("5_w54mx")
