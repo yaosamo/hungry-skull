@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bh2pcfvgbsxau"]
+[gd_scene load_steps=26 format=3 uid="uid://bh2pcfvgbsxau"]
 
 [ext_resource type="Texture2D" uid="uid://dcjq08n8gtm0i" path="res://assets/1000w/eye.png" id="1_lyot2"]
 [ext_resource type="Script" path="res://main.gd" id="1_mjl4v"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://pile.gd" id="3_hscwp"]
 [ext_resource type="Texture2D" uid="uid://bqvq61glxcjg8" path="res://assets/1000w/bone50.png" id="8_vy52n"]
 [ext_resource type="Texture2D" uid="uid://w2ta5t0ixb5v" path="res://assets/1000w/particle.png" id="9_3yqpy"]
-[ext_resource type="Material" uid="uid://cdv37q58kcisk" path="res://shaders/coinparticles.tres" id="10_0jb1j"]
 [ext_resource type="Texture2D" uid="uid://cqklepucr42mv" path="res://assets/300w/coin.png" id="10_cgugc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88bw0"]
@@ -66,6 +65,29 @@ scale_max = 0.01
 scale_curve = SubResource("CurveTexture_poarq")
 alpha_curve = SubResource("CurveTexture_h1ir5")
 
+[sub_resource type="Curve" id="Curve_1206q"]
+_data = [Vector2(0, 0.0573825), 0.0, 0.0, 0, 0, Vector2(0.175097, 1), 0.0, 0.0, 0, 0, Vector2(0.428016, 0.119369), -0.777507, -0.777507, 0, 0, Vector2(1, 0), -0.0432928, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_bpkxy"]
+curve = SubResource("Curve_1206q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7lqqt"]
+particle_flag_disable_z = true
+angle_min = -69.7
+angle_max = 127.7
+spread = 180.0
+initial_velocity_min = 8.06
+initial_velocity_max = 161.29
+angular_velocity_min = -22.59
+angular_velocity_max = 58.7
+radial_velocity_min = 451.61
+radial_velocity_max = 479.45
+radial_velocity_curve = SubResource("CurveTexture_bpkxy")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_max = 0.3
+
 [sub_resource type="SystemFont" id="SystemFont_r828u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8wu6"]
@@ -97,15 +119,14 @@ script = ExtResource("1_mjl4v")
 [node name="PileC" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1360.0
-offset_top = 584.0
+offset_left = 1312.0
+offset_top = 552.0
 offset_right = 1768.0
-offset_bottom = 840.0
+offset_bottom = 912.0
 script = ExtResource("3_hscwp")
 
 [node name="Pile" type="Sprite2D" parent="PileC"]
-position = Vector2(208, 152)
-scale = Vector2(0.7, 0.7)
+position = Vector2(264, 216)
 texture = ExtResource("2_fln45")
 
 [node name="Mouth" type="Sprite2D" parent="."]
@@ -166,15 +187,14 @@ randomness = 1.0
 
 [node name="coin" type="GPUParticles2D" parent="."]
 emitting = false
-amount = 300
-process_material = ExtResource("10_0jb1j")
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_7lqqt")
 texture = ExtResource("10_cgugc")
 lifetime = 2.5
 explosiveness = 1.0
 randomness = 1.0
 
 [node name="labelBones" type="Label" parent="."]
-unique_name_in_owner = true
 offset_left = 65.0
 offset_top = 47.0
 offset_right = 397.0

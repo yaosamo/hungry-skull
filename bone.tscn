@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuoe8ckuffx0h"]
+
+[ext_resource type="Script" path="res://bone_100.gd" id="1_en77p"]
+[ext_resource type="Texture2D" uid="uid://bku4wgvmbjkwk" path="res://assets/1000w/bone100.png" id="2_j8fht"]
+
+[node name="Bone" type="Node2D"]
+
+[node name="BoneCtr" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 208.0
+offset_bottom = 200.0
+script = ExtResource("1_en77p")
+
+[node name="bonesprite" type="Sprite2D" parent="BoneCtr"]
+position = Vector2(104, 96)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_j8fht")
