@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bh2pcfvgbsxau"]
+[gd_scene load_steps=28 format=3 uid="uid://bh2pcfvgbsxau"]
 
 [ext_resource type="Texture2D" uid="uid://dcjq08n8gtm0i" path="res://assets/1000w/eye.png" id="1_lyot2"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mjl4v"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://w2ta5t0ixb5v" path="res://assets/1000w/particle.png" id="9_3yqpy"]
 [ext_resource type="Material" uid="uid://cdv37q58kcisk" path="res://shaders/coinparticles.tres" id="10_0jb1j"]
 [ext_resource type="Texture2D" uid="uid://cqklepucr42mv" path="res://assets/300w/coin.png" id="10_cgugc"]
+[ext_resource type="Theme" uid="uid://dlmwqu4m1x0vh" path="res://theme.tres" id="12_hoiey"]
 [ext_resource type="PackedScene" uid="uid://kj3mrr1q2qmf" path="res://Scenes/levelUpgraphic.tscn" id="12_nvm1f"]
 [ext_resource type="AudioStream" uid="uid://c72f5ujc3m6mo" path="res://Audio/bg.mp3" id="13_sm6b8"]
 [ext_resource type="AudioStream" uid="uid://bjkovrybr2kpu" path="res://Audio/7_ohyea.mp3" id="14_x707x"]
@@ -182,10 +183,18 @@ offset_left = 65.0
 offset_top = 47.0
 offset_right = 397.0
 offset_bottom = 114.0
-theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
-theme_override_fonts/font = SubResource("SystemFont_r828u")
-theme_override_font_sizes/font_size = 44
+theme = ExtResource("12_hoiey")
 text = "Bones eaten: 0001"
+
+[node name="labelRareDropChance" type="Label" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+offset_left = 568.0
+offset_top = 47.0
+offset_right = 1112.0
+offset_bottom = 114.0
+theme = ExtResource("12_hoiey")
+text = "Rare drop chance: 0.001%"
 
 [node name="labelLv" type="Label" parent="."]
 unique_name_in_owner = true
@@ -241,21 +250,18 @@ texture = ExtResource("10_cgugc")
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
-theme_override_fonts/font = SubResource("SystemFont_r828u")
-theme_override_font_sizes/font_size = 44
-text = "0"
+theme = ExtResource("12_hoiey")
+text = "0000"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Stats"]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="labelSaphir" type="Label" parent="Stats/HBoxContainer2"]
+[node name="labelSapphire" type="Label" parent="Stats/HBoxContainer2"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
-theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
-theme_override_fonts/font = SubResource("SystemFont_r828u")
+theme = ExtResource("12_hoiey")
 theme_override_font_sizes/font_size = 44
 text = "000"
 
@@ -263,13 +269,12 @@ text = "000"
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="labelEmeraldR" type="Label" parent="Stats/HBoxContainer3"]
+[node name="labelRuby" type="Label" parent="Stats/HBoxContainer3"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
+theme = ExtResource("12_hoiey")
 theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
-theme_override_fonts/font = SubResource("SystemFont_r828u")
-theme_override_font_sizes/font_size = 44
 text = "0
 "
 
@@ -277,22 +282,22 @@ text = "0
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="labelEmeraldG" type="Label" parent="Stats/HBoxContainer4"]
+[node name="labelEmerald" type="Label" parent="Stats/HBoxContainer4"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
+theme = ExtResource("12_hoiey")
 theme_override_colors/font_color = Color(0.214103, 0.214103, 0.214103, 1)
-theme_override_fonts/font = SubResource("SystemFont_r828u")
-theme_override_font_sizes/font_size = 44
 text = "0"
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_sm6b8")
-volume_db = -37.439
+volume_db = -10.805
 autoplay = true
 mix_target = 2
+parameters/looping = true
 
 [node name="Talk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_x707x")
-volume_db = -13.634
+volume_db = 12.683
 mix_target = 2

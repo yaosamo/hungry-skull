@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://3dviylisqltn"
-path="res://.godot/imported/AndadaPro-Regular.ttf-ce1528df73d13836c7c9406558619b4b.fontdata"
+uid="uid://cka36nw2nbfnf"
+path="res://.godot/imported/AndadaPro-ExtraBold.ttf-e94a7ae36e92df42f90f329fcfcdeca5.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/AndadaPro-Regular.ttf"
-dest_files=["res://.godot/imported/AndadaPro-Regular.ttf-ce1528df73d13836c7c9406558619b4b.fontdata"]
+source_file="res://Fonts/AndadaPro-ExtraBold.ttf"
+dest_files=["res://.godot/imported/AndadaPro-ExtraBold.ttf-e94a7ae36e92df42f90f329fcfcdeca5.fontdata"]
 
 [params]
 

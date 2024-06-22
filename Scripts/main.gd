@@ -1,7 +1,26 @@
 extends Node2D
 
 @onready var spawnpos : Vector2 = $Mouth.position
-# 
+enum treasure { DIAMOND, EMERALD, RUBY, SAPPHIRE, PEARL, QUARTZ, COIN }
+var tresureCount := {
+treasure.DIAMOND : 0,
+treasure.EMERALD : 0,
+treasure.RUBY : 0,
+treasure.SAPPHIRE : 0,
+treasure.PEARL : 0,
+treasure.QUARTZ : 0,
+treasure.COIN : 0
+}
+var droprates := {
+treasure.DIAMOND : 0.01,
+treasure.EMERALD : 0.01,
+treasure.RUBY : 0.01,
+treasure.SAPPHIRE : 0.01,
+treasure.PEARL : 0.01,
+treasure.QUARTZ : 0.01,
+treasure.COIN : 0.1
+}
+
 var crunch := false
 var expnotgiven := true
 
@@ -27,12 +46,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#display
-	%labelCoin.text = str(coins)
+	# right side display treasures
+	%labelCoin.text = str(tresureCount[treasure.COIN])
+	%labelEmerald.text = str(tresureCount[treasure.EMERALD])
+	%labelRuby.text = str(tresureCount[treasure.RUBY])
+	%labelSapphire.text = str(tresureCount[treasure.SAPPHIRE])
+	
+	# left side
 	$Lvlprogress.value = exp
 	$labelBones.text = str("Bones eaten: ", boneseaten)
 	
-	#lvlup
+	# lvlup
 	if $Lvlprogress.value >= 100:
 		lvl += 1
 		$labelLv.text = str("Lv. ", lvl)
@@ -83,6 +107,7 @@ func _process(delta: float) -> void:
 	if distance < 200 and not crunch:
 		crunch = true
 		spawnParticles()
+		spawnTreasure()
 		boneEaten()
 	
 		if is_instance_valid($PileC.newBone):
@@ -109,7 +134,7 @@ func boneEaten():
 	#$Talk.stream = $PileC.nicebone
 	#$Talk.play()
 		
-func imLucky() -> bool:
+func imLucky(dropitem : float) -> bool:
 	var probability : = 0.1 # 10%
 	var randf = randf()
 	if randf <= probability: 
@@ -123,22 +148,28 @@ func spawnParticles():
 		$boneparts.emit_particle(Transform2D(0, spawnpos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
 		GPUParticles2D.EMIT_FLAG_POSITION
 		)
+		
 	for i in 2:
 		$bonecrush.emit_particle(Transform2D(0, spawnpos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
 		GPUParticles2D.EMIT_FLAG_POSITION
 		)
 		
-func spawnGems():
+		
+func gemChances():
+	pass
+		
+		
+func spawnTreasure():
 	var capcoins := 10
 	var mincoins := 1
 	
-	if imLucky():
+	if imLucky(droprates[treasure.COIN]):
 		print_debug("I'm lucky!")
 		capcoins = 100
 		mincoins = 50
 	
 	var coinsdropped := randi_range(mincoins, capcoins)
-	coins += coinsdropped
+	tresureCount[treasure.COIN] += coinsdropped
 	for i in coinsdropped:
 		$coin.emit_particle(Transform2D(0, spawnpos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
 		GPUParticles2D.EMIT_FLAG_POSITION

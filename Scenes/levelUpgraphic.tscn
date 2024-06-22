@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://kj3mrr1q2qmf"]
+[gd_scene load_steps=7 format=3 uid="uid://kj3mrr1q2qmf"]
 
 [ext_resource type="Script" path="res://Scripts/level_upgraphic.gd" id="1_h7wca"]
+[ext_resource type="Theme" uid="uid://dlmwqu4m1x0vh" path="res://theme.tres" id="1_k6lra"]
 
 [sub_resource type="Animation" id="Animation_gg0ui"]
 length = 0.001
@@ -101,6 +102,7 @@ offset_bottom = -285.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
+theme = ExtResource("1_k6lra")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Level up"

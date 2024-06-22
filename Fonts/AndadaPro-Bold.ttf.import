@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://del6jmq57do7d"
-path="res://.godot/imported/AndadaPro-Bold.ttf-51abcb2b1ede8f8159787b72f0bae238.fontdata"
+path="res://.godot/imported/AndadaPro-Bold.ttf-66be78928d7f0a4de506853360b1db28.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/AndadaPro-Bold.ttf"
-dest_files=["res://.godot/imported/AndadaPro-Bold.ttf-51abcb2b1ede8f8159787b72f0bae238.fontdata"]
+source_file="res://Fonts/AndadaPro-Bold.ttf"
+dest_files=["res://.godot/imported/AndadaPro-Bold.ttf-66be78928d7f0a4de506853360b1db28.fontdata"]
 
 [params]
 

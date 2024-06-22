@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://chbcoxvcx5f5u"
-path="res://.godot/imported/AndadaPro-SemiBoldItalic.ttf-2596ea6475008a16eb0c07a5999ddd61.fontdata"
+uid="uid://i82e7bqdfjbb"
+path="res://.godot/imported/AndadaPro-MediumItalic.ttf-e7438ad8338e9d33318c008256e800aa.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/AndadaPro-SemiBoldItalic.ttf"
-dest_files=["res://.godot/imported/AndadaPro-SemiBoldItalic.ttf-2596ea6475008a16eb0c07a5999ddd61.fontdata"]
+source_file="res://Fonts/AndadaPro-MediumItalic.ttf"
+dest_files=["res://.godot/imported/AndadaPro-MediumItalic.ttf-e7438ad8338e9d33318c008256e800aa.fontdata"]
 
 [params]
 
