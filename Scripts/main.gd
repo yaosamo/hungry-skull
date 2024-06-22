@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var spawnpos : Vector2 = $Mouth.position
+# 
 var crunch := false
 var expnotgiven := true
 
@@ -21,7 +23,7 @@ func _ready() -> void:
 	jaw_def_pos = $Jaw.position
 	pass # Replace with function body.
 
-
+# DropGem 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -80,7 +82,7 @@ func _process(delta: float) -> void:
 	
 	if distance < 200 and not crunch:
 		crunch = true
-		spawn()
+		spawnParticles()
 		boneEaten()
 	
 		if is_instance_valid($PileC.newBone):
@@ -116,16 +118,7 @@ func imLucky() -> bool:
 		return false
 	
 	
-func spawn():
-	var spawnpos : Vector2 = $Mouth.position
-	var capcoins := 10
-	var mincoins := 1
-	
-	if imLucky():
-		print_debug("I'm lucky!")
-		capcoins = 100
-		mincoins = 50
-	
+func spawnParticles():
 	for i in 25:
 		$boneparts.emit_particle(Transform2D(0, spawnpos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
 		GPUParticles2D.EMIT_FLAG_POSITION
@@ -134,6 +127,15 @@ func spawn():
 		$bonecrush.emit_particle(Transform2D(0, spawnpos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
 		GPUParticles2D.EMIT_FLAG_POSITION
 		)
+		
+func spawnGems():
+	var capcoins := 10
+	var mincoins := 1
+	
+	if imLucky():
+		print_debug("I'm lucky!")
+		capcoins = 100
+		mincoins = 50
 	
 	var coinsdropped := randi_range(mincoins, capcoins)
 	coins += coinsdropped

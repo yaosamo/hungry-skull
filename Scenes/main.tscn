@@ -288,10 +288,11 @@ text = "0"
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_sm6b8")
-volume_db = -23.146
+volume_db = -37.439
 autoplay = true
 mix_target = 2
 
 [node name="Talk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_x707x")
+volume_db = -13.634
 mix_target = 2
