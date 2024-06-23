@@ -1,8 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://bh2pcfvgbsxau"]
+[gd_scene load_steps=24 format=3 uid="uid://bh2pcfvgbsxau"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mjl4v"]
-[ext_resource type="Texture2D" uid="uid://b5m8nekykymat" path="res://assets/300w/pile.png" id="2_fln45"]
-[ext_resource type="Script" path="res://Scripts/pile.gd" id="3_hscwp"]
+[ext_resource type="PackedScene" uid="uid://byquqwh421h14" path="res://Scenes/bonepile.tscn" id="3_720vf"]
 [ext_resource type="Texture2D" uid="uid://bqvq61glxcjg8" path="res://assets/1000w/bone50.png" id="8_vy52n"]
 [ext_resource type="Texture2D" uid="uid://w2ta5t0ixb5v" path="res://assets/1000w/particle.png" id="9_3yqpy"]
 [ext_resource type="Material" uid="uid://cdv37q58kcisk" path="res://shaders/coinparticles.tres" id="10_0jb1j"]
@@ -94,20 +93,7 @@ script = ExtResource("1_mjl4v")
 
 [node name="Skull" parent="." instance=ExtResource("14_7edub")]
 
-[node name="PileC" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1456.0
-offset_top = 698.0
-offset_right = 1864.0
-offset_bottom = 954.0
-script = ExtResource("3_hscwp")
-metadata/_edit_group_ = true
-
-[node name="Pile" type="Sprite2D" parent="PileC"]
-position = Vector2(208, 152)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_fln45")
+[node name="PileC" parent="." instance=ExtResource("3_720vf")]
 
 [node name="bonecrush" type="GPUParticles2D" parent="."]
 emitting = false

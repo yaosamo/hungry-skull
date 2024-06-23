@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://byquqwh421h14"]
+
+[ext_resource type="Script" path="res://Scripts/pile.gd" id="1_ut2sl"]
+[ext_resource type="Texture2D" uid="uid://b5m8nekykymat" path="res://assets/300w/pile.png" id="2_0beck"]
+[ext_resource type="Theme" uid="uid://dlmwqu4m1x0vh" path="res://theme.tres" id="3_k6v5b"]
+[ext_resource type="Texture2D" uid="uid://cqklepucr42mv" path="res://assets/300w/coin.png" id="4_gn87c"]
+[ext_resource type="Texture2D" uid="uid://dcqspsudpcqhh" path="res://assets/300w/pile_label.png" id="5_bouo3"]
+
+[node name="PileC" type="Control"]
+auto_translate_mode = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1456.0
+offset_top = 698.0
+offset_right = 1864.0
+offset_bottom = 954.0
+script = ExtResource("1_ut2sl")
+
+[node name="Pile" type="Sprite2D" parent="."]
+position = Vector2(208, 152)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_0beck")
+
+[node name="price" type="HBoxContainer" parent="."]
+auto_translate_mode = 1
+offset_left = 152.0
+offset_top = 256.0
+offset_right = 253.0
+offset_bottom = 320.0
+theme = ExtResource("3_k6v5b")
+theme_override_constants/separation = 16
+alignment = 2
+metadata/_edit_group_ = true
+
+[node name="val_price" type="Label" parent="price"]
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("3_k6v5b")
+text = "1"
+
+[node name="container" type="Control" parent="price"]
+auto_translate_mode = 1
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Coin" type="Sprite2D" parent="price/container"]
+position = Vector2(32, 32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_gn87c")
+
+[node name="PileLabel" type="Sprite2D" parent="."]
+position = Vector2(200, 22)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_bouo3")
