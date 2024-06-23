@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb01ehxr7va5y"]
+
+[ext_resource type="Theme" uid="uid://dlmwqu4m1x0vh" path="res://theme.tres" id="1_4ah6n"]
+[ext_resource type="Script" path="res://Scenes/resources.gd" id="1_6wwpt"]
+[ext_resource type="Texture2D" uid="uid://cqklepucr42mv" path="res://assets/300w/coin.png" id="2_7ppsv"]
+
+[node name="Stats" type="VBoxContainer"]
+auto_translate_mode = 1
+offset_left = 1568.0
+offset_top = 16.0
+offset_right = 1896.0
+offset_bottom = 284.0
+size_flags_horizontal = 3
+script = ExtResource("1_6wwpt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("1_4ah6n")
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="labelCoin" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("1_4ah6n")
+text = "0"
+
+[node name="container" type="Control" parent="HBoxContainer"]
+auto_translate_mode = 1
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Coin" type="Sprite2D" parent="HBoxContainer/container"]
+position = Vector2(32, 32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7ppsv")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("1_4ah6n")
+alignment = 2
+
+[node name="labelSapphire" type="Label" parent="HBoxContainer2"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("1_4ah6n")
+text = "0"
+
+[node name="container" type="Control" parent="HBoxContainer2"]
+auto_translate_mode = 1
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Coin" type="Sprite2D" parent="HBoxContainer2/container"]
+position = Vector2(32, 32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7ppsv")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("1_4ah6n")
+alignment = 2
+
+[node name="labelRuby" type="Label" parent="HBoxContainer3"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("1_4ah6n")
+text = "0
+"
+
+[node name="container" type="Control" parent="HBoxContainer3"]
+auto_translate_mode = 1
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Coin" type="Sprite2D" parent="HBoxContainer3/container"]
+position = Vector2(32, 32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7ppsv")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("1_4ah6n")
+alignment = 2
+
+[node name="labelEmerald" type="Label" parent="HBoxContainer4"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("1_4ah6n")
+text = "0"
+
+[node name="container" type="Control" parent="HBoxContainer4"]
+auto_translate_mode = 1
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Coin" type="Sprite2D" parent="HBoxContainer4/container"]
+position = Vector2(32, 32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_7ppsv")

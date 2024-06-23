@@ -21,16 +21,19 @@ func _process(delta: float) -> void:
 
 
 func _gui_input(event: InputEvent):
-	if event is InputEventMouseButton and event.button_index == 1 and !singlebone:
-		singlebone = true
-		print_debug("Clicked here: ", event.global_position)
-		newBone = boneInstance.instantiate()
-		get_parent().add_child(newBone)
-		newBone.position = event.global_position - Vector2(80, 80)
-		#newBone.dragging = true
-		newBone.mouseoffset = Vector2(80, 80)
-		speakup()
-	pass
+		if event is InputEventMouseButton and event.button_index == 1 and !singlebone:
+			if state.COIN >= 1:
+				state.COIN -= 1
+				singlebone = true
+				newBone = boneInstance.instantiate()
+				get_parent().add_child(newBone)
+				newBone.position = event.global_position - Vector2(80, 80)
+				#newBone.dragging = true
+				newBone.mouseoffset = Vector2(80, 80)
+				speakup()
+			else: 
+				print_debug("Not enough coins")
+		pass
 
 
 func speakup():

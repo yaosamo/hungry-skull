@@ -1,7 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://bh2pcfvgbsxau"]
+[gd_scene load_steps=28 format=3 uid="uid://bh2pcfvgbsxau"]
 
+[ext_resource type="Texture2D" uid="uid://dcjq08n8gtm0i" path="res://assets/1000w/eye.png" id="1_lyot2"]
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mjl4v"]
+[ext_resource type="Texture2D" uid="uid://42eryhkqlb8o" path="res://assets/1000w/skull.png" id="1_mxuqt"]
 [ext_resource type="Texture2D" uid="uid://b5m8nekykymat" path="res://assets/300w/pile.png" id="2_fln45"]
+[ext_resource type="Texture2D" uid="uid://c11dhlc7jialf" path="res://assets/1000w/jaw.png" id="2_si6pl"]
+[ext_resource type="Texture2D" uid="uid://dq17abn6dlyje" path="res://assets/1000w/mouthbg.png" id="3_4hid5"]
 [ext_resource type="Script" path="res://Scripts/pile.gd" id="3_hscwp"]
 [ext_resource type="Texture2D" uid="uid://bqvq61glxcjg8" path="res://assets/1000w/bone50.png" id="8_vy52n"]
 [ext_resource type="Texture2D" uid="uid://w2ta5t0ixb5v" path="res://assets/1000w/particle.png" id="9_3yqpy"]
@@ -11,9 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://kj3mrr1q2qmf" path="res://Scenes/levelUpgraphic.tscn" id="12_nvm1f"]
 [ext_resource type="FontFile" uid="uid://del6jmq57do7d" path="res://Fonts/AndadaPro-Bold.ttf" id="13_0m2pq"]
 [ext_resource type="AudioStream" uid="uid://c72f5ujc3m6mo" path="res://Audio/bg.mp3" id="13_sm6b8"]
-[ext_resource type="PackedScene" uid="uid://5fth1rg4hlrq" path="res://Scenes/skull.tscn" id="14_7edub"]
 [ext_resource type="AudioStream" uid="uid://bjkovrybr2kpu" path="res://Audio/7_ohyea.mp3" id="14_x707x"]
-[ext_resource type="PackedScene" uid="uid://bb01ehxr7va5y" path="res://Scenes/resources.tscn" id="15_pk7de"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88bw0"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="Curve" id="Curve_d0828"]
 _data = [Vector2(0.727627, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -92,8 +97,6 @@ corner_radius_bottom_left = 20
 [node name="main" type="Node2D"]
 script = ExtResource("1_mjl4v")
 
-[node name="Skull" parent="." instance=ExtResource("14_7edub")]
-
 [node name="PileC" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -108,6 +111,46 @@ metadata/_edit_group_ = true
 position = Vector2(208, 152)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_fln45")
+
+[node name="Mouth" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(928.649, 628.7)
+scale = Vector2(0.275297, 0.222577)
+texture = ExtResource("3_4hid5")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 801.0
+offset_top = 402.2
+offset_right = 1091.0
+offset_bottom = 524.2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_88bw0")
+
+[node name="Jaw" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(930, 600.2)
+scale = Vector2(0.310935, 0.310935)
+texture = ExtResource("2_si6pl")
+
+[node name="EyeL" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(847, 455.2)
+rotation = 0.279253
+scale = Vector2(0.0677778, 0.0677778)
+texture = ExtResource("1_lyot2")
+
+[node name="EyeR" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1024, 456.2)
+rotation = 0.279253
+scale = Vector2(0.0633326, 0.0633326)
+texture = ExtResource("1_lyot2")
+
+[node name="Skull" type="Sprite2D" parent="."]
+position = Vector2(952, 466.2)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_mxuqt")
 
 [node name="bonecrush" type="GPUParticles2D" parent="."]
 emitting = false
@@ -185,7 +228,108 @@ offset_top = 224.0
 offset_right = 1024.0
 offset_bottom = 279.0
 
-[node name="Stats" parent="." instance=ExtResource("15_pk7de")]
+[node name="Stats" type="VBoxContainer" parent="."]
+offset_left = 1568.0
+offset_top = 16.0
+offset_right = 1896.0
+offset_bottom = 284.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+theme = ExtResource("12_hoiey")
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="labelCoin" type="Label" parent="Stats/HBoxContainer"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("12_hoiey")
+text = "0"
+
+[node name="container" type="Control" parent="Stats/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Coin" type="Sprite2D" parent="Stats/HBoxContainer/container"]
+position = Vector2(32, 32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_cgugc")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Stats"]
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("12_hoiey")
+alignment = 2
+
+[node name="labelSapphire" type="Label" parent="Stats/HBoxContainer2"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("12_hoiey")
+text = "0"
+
+[node name="container" type="Control" parent="Stats/HBoxContainer2"]
+auto_translate_mode = 1
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Coin" type="Sprite2D" parent="Stats/HBoxContainer2/container"]
+position = Vector2(32, 32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_cgugc")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Stats"]
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("12_hoiey")
+alignment = 2
+
+[node name="labelRuby" type="Label" parent="Stats/HBoxContainer3"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("12_hoiey")
+text = "0
+"
+
+[node name="container" type="Control" parent="Stats/HBoxContainer3"]
+auto_translate_mode = 1
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Coin" type="Sprite2D" parent="Stats/HBoxContainer3/container"]
+position = Vector2(32, 32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_cgugc")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Stats"]
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("12_hoiey")
+alignment = 2
+
+[node name="labelEmerald" type="Label" parent="Stats/HBoxContainer4"]
+unique_name_in_owner = true
+auto_translate_mode = 1
+layout_mode = 2
+theme = ExtResource("12_hoiey")
+text = "0"
+
+[node name="container" type="Control" parent="Stats/HBoxContainer4"]
+auto_translate_mode = 1
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Coin" type="Sprite2D" parent="Stats/HBoxContainer4/container"]
+position = Vector2(32, 32)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_cgugc")
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_sm6b8")

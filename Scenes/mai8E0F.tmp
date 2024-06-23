@@ -92,9 +92,8 @@ corner_radius_bottom_left = 20
 [node name="main" type="Node2D"]
 script = ExtResource("1_mjl4v")
 
-[node name="Skull" parent="." instance=ExtResource("14_7edub")]
-
 [node name="PileC" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1456.0
@@ -198,3 +197,5 @@ parameters/looping = true
 stream = ExtResource("14_x707x")
 volume_db = 12.683
 mix_target = 2
+
+[node name="Skull" parent="." instance=ExtResource("14_7edub")]
