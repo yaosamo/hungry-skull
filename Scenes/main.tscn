@@ -173,14 +173,17 @@ offset_bottom = 279.0
 
 [node name="Stats" parent="." instance=ExtResource("15_pk7de")]
 
-[node name="Audio" type="AudioStreamPlayer" parent="."]
+[node name="Bg" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_sm6b8")
-volume_db = -10.805
+volume_db = 0.61
 autoplay = true
 mix_target = 2
 parameters/looping = true
 
 [node name="Talk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_x707x")
-volume_db = 12.683
+mix_target = 2
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_x707x")
 mix_target = 2

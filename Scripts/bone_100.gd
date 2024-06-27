@@ -3,7 +3,6 @@ extends Control
 var dragging := false
 var mouseoffset : Vector2
 
-
 #prices
 var bonebaseprice := 10
 

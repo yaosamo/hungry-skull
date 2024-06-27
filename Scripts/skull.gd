@@ -19,7 +19,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	#matematika 
 	var mouseGlobalpos : Vector2 = get_parent().get_global_mouse_position()
 	var expanentaEyes := 1 / exp(distance*0.00005)
@@ -74,10 +73,7 @@ func boneEaten():
 	state.boneseaten += 1
 	var expcalc:= pow(0.99, state.boneseaten)*state.boneseaten
 	get_parent().exp += expcalc
-	print_debug("pow(0.95, lvl+coins) ", expcalc)
-	#expnotgiven = false
-	#$Talk.stream = $PileC.nicebone
-	#$Talk.play()
+	
 	
 	
 func spawnParticles():
@@ -92,27 +88,40 @@ func spawnParticles():
 		)
 		
 		
-func imLucky(dropitem : float) -> bool:
-	var probability : = 0.1 # 10%
+func imLucky(dropitem : float = 0.1) -> bool:
+	# dropitem 0.1 = 10% chance 
 	var randf = randf()
-	if randf <= probability: 
+	if randf <= dropitem: 
 		return true
 	else:
 		return false
 	
-	
+
 func spawnTreasure():
 	var capcoins := 10
 	var mincoins := 1
+	var dropamount := 0
 	
-	if imLucky(0.1):
-		print_debug("I'm lucky!")
+	if imLucky():
+		print_debug("I'm lucky! for coins")
 		capcoins = 100
 		mincoins = 50
 	
-	var coinsdropped := randi_range(mincoins, capcoins)
-	state.COIN += coinsdropped
-	for i in coinsdropped:
+	dropamount = randi_range(mincoins, capcoins)
+	state.r[state.tres.COIN] += dropamount
+	for i in dropamount:
 		get_parent().get_node("coin").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
 		GPUParticles2D.EMIT_FLAG_POSITION
 		)
+		
+	if imLucky(state.raredrop):
+		var random_item = state.r.keys().pick_random()
+		dropamount = randi_range(1, 10)
+		state.r[random_item] += dropamount
+		print_debug("I'm lucky for RARE DROP!", state.r[random_item])
+		
+		for i in dropamount:
+			get_parent().get_node("coin").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
+			GPUParticles2D.EMIT_FLAG_POSITION
+			)
+		

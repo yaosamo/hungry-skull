@@ -1,8 +1,5 @@
 extends Node2D
 
-var expnotgiven := true
-
-
 var exp := 0.0
 var lvl := 1
 
@@ -25,11 +22,8 @@ func _process(delta: float) -> void:
 		lvl += 1
 		$labelLv.text = str("Lv. ", lvl)
 		exp = 0
-		$Talk.stream = load("res://Audio/lvlup1.mp3")
-		$Talk.play()
+		$SFX.stream = load("res://Audio/lvlup1.mp3")
+		$SFX.play()
 		$lvlup.visible = true
 		$lvlup/anima.play("levelup")
-			
-	if !$Talk.playing:
-		$lvlup.visible = false
 pass

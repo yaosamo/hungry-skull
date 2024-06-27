@@ -8,11 +8,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	%labelCoin.text = str(format(state.COIN))
-	%labelEmerald.text = str(state.EMERALD)
-	%labelRuby.text = str(state.RUBY)
-	%labelSapphire.text = str(state.SAPPHIRE)
+
+	%labelCoin.text = str(format(state.r[state.tres.COIN]))
+	%labelEmerald.text = str(state.r[state.tres.EMERALD])
+	%labelRuby.text = str(state.r[state.tres.RUBY])
+	%labelSapphire.text = str(state.r[state.tres.SAPPHIRE])
 	
 	pass
 # Oleh's magic
