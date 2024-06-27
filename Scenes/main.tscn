@@ -171,7 +171,7 @@ offset_top = 224.0
 offset_right = 1024.0
 offset_bottom = 279.0
 
-[node name="Stats" parent="." instance=ExtResource("15_pk7de")]
+[node name="Resources" parent="." instance=ExtResource("15_pk7de")]
 
 [node name="Bg" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_sm6b8")

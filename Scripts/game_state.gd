@@ -1,13 +1,6 @@
 extends Node
 enum tres { COIN, DIAMOND, EMERALD, RUBY, SAPPHIRE, PEARL, QUARTZ }
 
-var COIN := 10
-var EMERALD := 0
-var RUBY := 0
-var SAPPHIRE := 0
-var PEARL := 0
-var QUARTZ := 0
-var DIAMOND := 0
 var boneseaten := 0
 
 var r : Dictionary = {

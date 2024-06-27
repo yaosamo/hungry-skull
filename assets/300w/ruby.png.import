@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhtq4v5ceg4qq"
-path="res://.godot/imported/emeraldR.png-1f48d08431e812e4512b9886934388c9.ctex"
+path="res://.godot/imported/ruby.png-30cba33aa594a17fa8d4d5678bc0f844.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/300w/emeraldR.png"
-dest_files=["res://.godot/imported/emeraldR.png-1f48d08431e812e4512b9886934388c9.ctex"]
+source_file="res://assets/300w/ruby.png"
+dest_files=["res://.godot/imported/ruby.png-30cba33aa594a17fa8d4d5678bc0f844.ctex"]
 
 [params]
 

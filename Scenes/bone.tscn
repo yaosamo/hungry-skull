@@ -1,7 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuoe8ckuffx0h"]
+[gd_scene load_steps=7 format=3 uid="uid://cuoe8ckuffx0h"]
 
 [ext_resource type="Script" path="res://Scripts/bone_100.gd" id="1_clhg7"]
-[ext_resource type="Texture2D" uid="uid://bku4wgvmbjkwk" path="res://assets/1000w/bone100.png" id="2_lyy0n"]
+[ext_resource type="Texture2D" uid="uid://cxbwhw5cb408o" path="res://assets/300w/superbone.png" id="2_iub2r"]
+[ext_resource type="Texture2D" uid="uid://co7xtncyo5b20" path="res://assets/boneparticle.png" id="3_t2qq4"]
+
+[sub_resource type="Curve" id="Curve_qapl4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.889105, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_imtxv"]
+curve = SubResource("Curve_qapl4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5yac7"]
+particle_flag_disable_z = true
+angle_min = -110.3
+angle_max = 63.9
+inherit_velocity_ratio = 0.289
+spread = 180.0
+orbit_velocity_min = -0.226
+orbit_velocity_max = 0.599
+radial_velocity_min = -44.52
+radial_velocity_max = 58.22
+scale_min = 0.1
+alpha_curve = SubResource("CurveTexture_imtxv")
+hue_variation_min = -0.34
+hue_variation_max = 0.3
 
 [node name="BoneCtr" type="Control"]
 layout_mode = 3
@@ -12,8 +35,14 @@ script = ExtResource("1_clhg7")
 
 [node name="bonesprite" type="Sprite2D" parent="."]
 position = Vector2(104, 96)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_lyy0n")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_iub2r")
 
-[node name="Bone" type="Node2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 visible = false
+position = Vector2(104, 96)
+scale = Vector2(0.5, 0.5)
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_5yac7")
+texture = ExtResource("3_t2qq4")
+lifetime = 5.0
