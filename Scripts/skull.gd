@@ -19,7 +19,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
+			
 	#matematika 
 	var mouseGlobalpos : Vector2 = get_parent().get_global_mouse_position()
 	var expanentaEyes := 1 / exp(distance*0.00005)
@@ -111,7 +111,7 @@ func spawnTreasure():
 	dropamount = randi_range(mincoins, capcoins)
 	state.r[state.tres.COIN] += dropamount
 	#refactor? maybe or don't i dont care update it all after purchase
-	get_parent().get_node("Resources").UiRes[state.tres.COIN].get_child(0).text = format(str(state.r[state.tres.COIN]))
+	get_parent().get_node("Resources").updateUI()
 	
 	for i in dropamount:
 		get_parent().get_node("coin").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
@@ -120,9 +120,14 @@ func spawnTreasure():
 		
 	if imLucky(state.raredrop):
 		var random_item = state.r.keys().pick_random()
+		#if coins -> try again
+		while random_item == state.tres.COIN:
+			print_debug("It's a coin again ", random_item)
+			random_item = state.r.keys().pick_random()
 		dropamount = randi_range(1, 10)
+		#add to res
 		state.r[random_item] += dropamount
-		get_parent().get_node("Resources").UiRes[random_item].get_child(0).text = format(str(state.r[random_item]))
+		get_parent().get_node("Resources").updateUI()
 		print_debug("I'm lucky for RARE DROP: ", state.r[random_item])
 		
 		for i in dropamount:
@@ -131,14 +136,3 @@ func spawnTreasure():
 			)
 		
 
-
-# Oleh's magic
-func format(val) -> String:
-	var v := int(val)
-	var p :Array[String] = []
-	while v >= 1000:
-		p.append("%03d" % (v % 1000))
-		v /= 1000
-	p.append(str(v))
-	p.reverse()
-	return ",".join(p)

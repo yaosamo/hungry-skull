@@ -32,3 +32,20 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#print_debug(Icons)
 	pass
+
+
+func updateUI():
+	for i in state.r.keys():
+		UiRes[i].get_child(0).text = format(str(state.r[i]))
+
+
+# Oleh's magic
+func format(val) -> String:
+	var v := int(val)
+	var p :Array[String] = []
+	while v >= 1000:
+		p.append("%03d" % (v % 1000))
+		v /= 1000
+	p.append(str(v))
+	p.reverse()
+	return ",".join(p)
