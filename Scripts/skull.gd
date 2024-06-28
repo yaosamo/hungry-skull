@@ -123,7 +123,7 @@ func spawnTreasure():
 		while random_item == state.tres.COIN:
 			print_debug("It's a coin again ", random_item)
 			random_item = state.r.keys().pick_random()
-		dropamount = randi_range(1, 10)
+		dropamount = randi_range(20, 40)
 		#add to res
 		state.r[random_item] += dropamount
 		get_parent().get_node("Resources").updateUI()
