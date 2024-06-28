@@ -102,6 +102,7 @@ func spawnTreasure():
 	var capcoins := 10
 	var mincoins := 1
 	var dropamount := 0
+	var tresTexture : Texture
 	
 	if imLucky():
 		print_debug("I'm lucky! for coins")
@@ -110,14 +111,12 @@ func spawnTreasure():
 	
 	dropamount = randi_range(mincoins, capcoins)
 	state.r[state.tres.COIN] += dropamount
-	#refactor? maybe or don't i dont care update it all after purchase
 	get_parent().get_node("Resources").updateUI()
+	tresTexture = get_parent().get_node("Resources").Icons[state.tres.COIN]	
+	coinsPew(dropamount)
 	
-	for i in dropamount:
-		get_parent().get_node("coin").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
-		GPUParticles2D.EMIT_FLAG_POSITION
-		)
-		
+	
+	
 	if imLucky(state.raredrop):
 		var random_item = state.r.keys().pick_random()
 		#if coins -> try again
@@ -128,11 +127,20 @@ func spawnTreasure():
 		#add to res
 		state.r[random_item] += dropamount
 		get_parent().get_node("Resources").updateUI()
-		print_debug("I'm lucky for RARE DROP: ", state.r[random_item])
-		
-		for i in dropamount:
-			get_parent().get_node("coin").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
-			GPUParticles2D.EMIT_FLAG_POSITION
-			)
-		
+		print_debug("I'm lucky for RARE DROP id: ", random_item)
+		tresTexture = get_parent().get_node("Resources").Icons[random_item]
+		treasuresPewPew(tresTexture, dropamount)
 
+func coinsPew(dropamount):
+	for i in dropamount:
+		get_parent().get_node("coins").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
+		GPUParticles2D.EMIT_FLAG_POSITION
+		)
+
+func treasuresPewPew(tresTexture, dropamount):
+	get_parent().get_node("treasure").texture = tresTexture
+	for i in dropamount:
+		get_parent().get_node("treasure").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
+		GPUParticles2D.EMIT_FLAG_POSITION
+		)
+	pass #est

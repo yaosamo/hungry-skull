@@ -8,11 +8,10 @@ func _ready() -> void:
 	%labelLv.text = str("Lv. ", lvl)
 	pass # Replace with function body.
 
-# DropGem 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-
+	
 	# left side
 	$Lvlprogress.value = exp
 	$val_bonesEaten.text = str(state.boneseaten)

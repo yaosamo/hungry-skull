@@ -3,7 +3,7 @@ extends VBoxContainer
 var UiRes : Dictionary 
 @onready var sapphire := load("res://assets/300w/sapphire.png")
 @onready var coin := load("res://assets/300w/coin.png")
-@onready var emerald := load("res://assets/300w/emeraldG.png")
+@onready var emerald := load("res://assets/300w/emerald.png")
 @onready var ruby := load("res://assets/300w/ruby.png")
 @onready var secret := load("res://assets/300w/secret.png")
 @onready var Icons := {

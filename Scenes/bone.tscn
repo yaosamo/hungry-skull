@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cuoe8ckuffx0h"]
 
 [ext_resource type="Script" path="res://Scripts/bone_100.gd" id="1_clhg7"]
-[ext_resource type="Texture2D" uid="uid://cxbwhw5cb408o" path="res://assets/300w/superbone.png" id="2_iub2r"]
+[ext_resource type="Texture2D" uid="uid://bku4wgvmbjkwk" path="res://assets/1000w/bone100.png" id="2_ljqt3"]
 [ext_resource type="Texture2D" uid="uid://co7xtncyo5b20" path="res://assets/boneparticle.png" id="3_t2qq4"]
 
 [sub_resource type="Curve" id="Curve_qapl4"]
@@ -35,8 +35,8 @@ script = ExtResource("1_clhg7")
 
 [node name="bonesprite" type="Sprite2D" parent="."]
 position = Vector2(104, 96)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_iub2r")
+scale = Vector2(0.181443, 0.181443)
+texture = ExtResource("2_ljqt3")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 visible = false
