@@ -2,6 +2,9 @@ extends VBoxContainer
 
 var UiRes : Dictionary 
 @onready var sapphire := load("res://assets/300w/sapphire.png")
+@onready var pearl := load("res://assets/300w/pearl.png")
+@onready var diamond := load("res://assets/300w/diamond.png")
+@onready var quartz := load("res://assets/300w/quartz.png")
 @onready var coin := load("res://assets/300w/coin.png")
 @onready var emerald := load("res://assets/300w/emerald.png")
 @onready var ruby := load("res://assets/300w/ruby.png")
@@ -11,9 +14,9 @@ var UiRes : Dictionary
 	state.tres.EMERALD : emerald,
 	state.tres.RUBY : ruby,
 	state.tres.SAPPHIRE : sapphire,
-	state.tres.PEARL : coin,
-	state.tres.QUARTZ : coin,
-	state.tres.DIAMOND : coin
+	state.tres.PEARL : pearl,
+	state.tres.QUARTZ : quartz,
+	state.tres.DIAMOND : diamond
 }
 
 # Called when the node enters the scene tree for the first time.
