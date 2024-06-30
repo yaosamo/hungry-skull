@@ -19,7 +19,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-			
+	print_debug("TEST: ", get_children())
 	#matematika 
 	var mouseGlobalpos : Vector2 = get_parent().get_global_mouse_position()
 	var expanentaEyes := 1 / exp(distance*0.00005)
@@ -131,11 +131,21 @@ func spawnTreasure():
 		tresTexture = get_parent().get_node("Resources").Icons[random_item]
 		treasuresPewPew(tresTexture, dropamount)
 
-func coinsPew(dropamount):
-	for i in dropamount:
-		get_parent().get_node("coins").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
-		GPUParticles2D.EMIT_FLAG_POSITION
-		)
+
+func coinsPew(dropamount : int):
+	var coinParticles := load("res://Scenes/coinsParticles.tscn")
+	var new_particle = coinParticles.instantiate()
+	new_particle.emitting = true
+	new_particle.amount = dropamount
+	new_particle.global_position = mouthPos + Vector2(120,0)
+	add_child(new_particle)
+	new_particle.finished.connect(deleteParticle.bind(new_particle))
+
+
+func deleteParticle(n):
+	n.queue_free()
+	
+	
 
 func treasuresPewPew(tresTexture, dropamount):
 	get_parent().get_node("treasure").texture = tresTexture

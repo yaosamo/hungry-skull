@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bh2pcfvgbsxau"]
+[gd_scene load_steps=24 format=3 uid="uid://bh2pcfvgbsxau"]
 
 [ext_resource type="Script" path="res://Scripts/main.gd" id="1_mjl4v"]
 [ext_resource type="PackedScene" uid="uid://byquqwh421h14" path="res://Scenes/bonepile.tscn" id="3_720vf"]
@@ -6,8 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cxi25b7yju5x8" path="res://assets/300w/diamond.png" id="8_nla2k"]
 [ext_resource type="Texture2D" uid="uid://bqvq61glxcjg8" path="res://assets/300w/bone50.png" id="8_vy52n"]
 [ext_resource type="Texture2D" uid="uid://w2ta5t0ixb5v" path="res://assets/1000w/particle.png" id="9_3yqpy"]
-[ext_resource type="Material" uid="uid://cdv37q58kcisk" path="res://shaders/coinparticles.tres" id="10_0jb1j"]
-[ext_resource type="Texture2D" uid="uid://cqklepucr42mv" path="res://assets/300w/coin.png" id="10_cgugc"]
 [ext_resource type="Theme" uid="uid://dlmwqu4m1x0vh" path="res://theme.tres" id="12_hoiey"]
 [ext_resource type="PackedScene" uid="uid://kj3mrr1q2qmf" path="res://Scenes/levelUpgraphic.tscn" id="12_nvm1f"]
 [ext_resource type="FontFile" uid="uid://del6jmq57do7d" path="res://Fonts/AndadaPro-Bold.ttf" id="13_0m2pq"]
@@ -111,15 +109,6 @@ amount = 100
 process_material = SubResource("ParticleProcessMaterial_q2ltd")
 texture = ExtResource("9_3yqpy")
 lifetime = 2.0
-randomness = 1.0
-
-[node name="coins" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 300
-process_material = ExtResource("10_0jb1j")
-texture = ExtResource("10_cgugc")
-lifetime = 2.5
-explosiveness = 1.0
 randomness = 1.0
 
 [node name="treasure" type="GPUParticles2D" parent="."]
