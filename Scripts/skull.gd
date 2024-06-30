@@ -106,13 +106,17 @@ func spawnTreasure():
 	
 	if imLucky():
 		print_debug("I'm lucky! for coins")
-		capcoins = 100
-		mincoins = 50
+		var wow_anima := load("res://Scenes/wow_2x.tscn")
+		var new_wow = wow_anima.instantiate()
+		new_wow.global_position = $Skull.position - Vector2(400, 100)
+		add_child(new_wow)
+		capcoins = 300
+		mincoins = 150
 	
 	dropamount = randi_range(mincoins, capcoins)
 	state.r[state.tres.COIN] += dropamount
 	get_parent().get_node("Resources").updateUI()
-	tresTexture = get_parent().get_node("Resources").Icons[state.tres.COIN]	
+	tresTexture = get_parent().get_node("Resources").Icons[state.tres.COIN]
 	coinsPew(dropamount)
 	
 	
@@ -139,12 +143,11 @@ func coinsPew(dropamount : int):
 	new_particle.amount = dropamount
 	new_particle.global_position = mouthPos + Vector2(120,0)
 	add_child(new_particle)
-	new_particle.finished.connect(deleteParticle.bind(new_particle))
+	new_particle.finished.connect(deleteNode.bind(new_particle))
 
 
-func deleteParticle(n):
+func deleteNode(n):
 	n.queue_free()
-	
 	
 
 func treasuresPewPew(tresTexture, dropamount):

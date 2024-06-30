@@ -175,6 +175,7 @@ offset_bottom = 279.0
 
 [node name="Bg" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_sm6b8")
+autoplay = true
 mix_target = 2
 parameters/looping = true
 
