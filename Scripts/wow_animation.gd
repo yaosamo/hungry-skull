@@ -3,7 +3,7 @@ extends AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.play("wow-in")
+	self.play("bounce")
 	pass # Replace with function body.
 
 

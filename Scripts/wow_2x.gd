@@ -9,3 +9,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_anima_animation_finished(anim_name: StringName) -> void:
+	self.queue_free()
+	pass # Replace with function body.

@@ -19,7 +19,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print_debug("TEST: ", get_children())
+	#print_debug("nodes on screen: ", get_children())
 	#matematika 
 	var mouseGlobalpos : Vector2 = get_parent().get_global_mouse_position()
 	var expanentaEyes := 1 / exp(distance*0.00005)
@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 	$Mouth.position.y = jaw_def_pos.y+expJ-40
 	
 	
-	if distance < 200 and not crunch:
+	if distance < 200 and not crunch and Pile.newBone:
 		crunch = true
 		spawnParticles()
 		spawnTreasure()
@@ -112,11 +112,13 @@ func spawnTreasure():
 		add_child(new_wow)
 		capcoins = 300
 		mincoins = 150
+		#await new_wow.get_node("anima").animation_finished
+		#deleteNode(new_wow)
+		new_wow.get_node("anima").animation_finished.connect(deleteNode.bind(new_wow))
 	
 	dropamount = randi_range(mincoins, capcoins)
 	state.r[state.tres.COIN] += dropamount
 	get_parent().get_node("Resources").updateUI()
-	tresTexture = get_parent().get_node("Resources").Icons[state.tres.COIN]
 	coinsPew(dropamount)
 	
 	
