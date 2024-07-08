@@ -23,6 +23,7 @@ func _gui_input(event: InputEvent):
 		if event is InputEventMouseButton and event.button_index == 1 and !singlebone:
 			if state.r[state.tres.COIN] >= 1:
 				state.r[state.tres.COIN] -= 1
+				get_parent().get_node("Resources").updateUI()
 				singlebone = true
 				newBone = boneInstance.instantiate()
 				get_parent().add_child(newBone)
