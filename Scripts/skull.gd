@@ -57,12 +57,13 @@ func _process(delta: float) -> void:
 	
 	if distance < 200 and not crunch and Pile.newBone:
 		crunch = true
-		spawnParticles()
+		# pass bonetype
 		spawnTreasure()
-		boneEaten()
+		boneEaten() 
+
 		if is_instance_valid(Pile.newBone):
 			Pile.newBone.queue_free()
-			Pile.singlebone = false
+			Pile.bonepurchased = false
 
 		
 	if distance > 201 and crunch:
@@ -74,19 +75,6 @@ func boneEaten():
 	state.boneseaten += 1
 	var expcalc:= pow(0.99, state.boneseaten)*state.boneseaten
 	get_parent().exp += expcalc
-	
-	
-	
-func spawnParticles():
-	for i in 25:
-		get_parent().get_node("boneparts").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
-		GPUParticles2D.EMIT_FLAG_POSITION
-		)
-		
-	for i in 2:
-		get_parent().get_node("bonecrush").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
-		GPUParticles2D.EMIT_FLAG_POSITION
-		)
 		
 		
 func imLucky(dropitem : float = 0.1) -> bool:
@@ -104,6 +92,7 @@ func spawnTreasure():
 	var dropamount := 0
 	var tresTexture : Texture
 	
+	# coins
 	if imLucky():
 		print_debug("I'm lucky! for coins")
 		var wow_anima := load("res://Scenes/wow_2x.tscn")
@@ -112,17 +101,15 @@ func spawnTreasure():
 		add_child(new_wow)
 		capcoins = 300
 		mincoins = 150
-		#await new_wow.get_node("anima").animation_finished
-		#deleteNode(new_wow)
 		new_wow.get_node("anima").animation_finished.connect(deleteNode.bind(new_wow))
 	
 	dropamount = randi_range(mincoins, capcoins)
 	state.r[state.tres.COIN] += dropamount
 	get_parent().get_node("Resources").updateUI()
-	coinsPew(dropamount)
+	treasurePew(dropamount, "coins")
 	
 	
-	
+	# gems
 	if imLucky(state.raredrop):
 		var random_item = state.r.keys().pick_random()
 		#if coins -> try again
@@ -135,12 +122,17 @@ func spawnTreasure():
 		get_parent().get_node("Resources").updateUI()
 		print_debug("I'm lucky for RARE DROP id: ", random_item)
 		tresTexture = get_parent().get_node("Resources").Icons[random_item]
-		treasuresPewPew(tresTexture, dropamount)
+		treasurePew(dropamount, "gems", tresTexture)
 
 
-func coinsPew(dropamount : int):
-	var coinParticles := load("res://Scenes/coinsParticles.tscn")
-	var new_particle = coinParticles.instantiate()
+func treasurePew(dropamount : int, particle : String, gemTex := load("res://assets/300w/coin.png")):
+	var particleScene := {
+		"coins" : load("res://Scenes/coinsParticles.tscn"),
+		"gems" : load("res://Scenes/gemsParticles.tscn")
+	}
+	var new_particle = particleScene[particle].instantiate()
+	if particle == "gems":
+		new_particle.texture = gemTex
 	new_particle.emitting = true
 	new_particle.amount = dropamount
 	new_particle.global_position = mouthPos + Vector2(120,0)
@@ -151,11 +143,4 @@ func coinsPew(dropamount : int):
 func deleteNode(n):
 	n.queue_free()
 	
-
-func treasuresPewPew(tresTexture, dropamount):
-	get_parent().get_node("treasure").texture = tresTexture
-	for i in dropamount:
-		get_parent().get_node("treasure").emit_particle(Transform2D(0, mouthPos), Vector2.ZERO, Color.RED, Color.TRANSPARENT,
-		GPUParticles2D.EMIT_FLAG_POSITION
-		)
-	pass #est
+	pass 

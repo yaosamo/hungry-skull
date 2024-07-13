@@ -4,7 +4,7 @@ var dragging := false
 var mouseoffset : Vector2
 
 #prices
-var bonebaseprice := 10
+@export var bonebaseprice := 10
 
 func _ready() -> void:
 	pass

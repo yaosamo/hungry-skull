@@ -30,85 +30,85 @@ offset_right = 345.0
 offset_bottom = 316.0
 theme_override_constants/separation = 50
 
-[node name="regBone" type="VBoxContainer" parent="Shop"]
+[node name="regBoneV" type="VBoxContainer" parent="Shop"]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Shop/regBone"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop/regBoneV"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="Shop/regBone/HBoxContainer"]
+[node name="regBone" type="Control" parent="Shop/regBoneV/HBoxContainer"]
 layout_mode = 2
 
-[node name="Bone100" type="Sprite2D" parent="Shop/regBone/HBoxContainer/Control"]
+[node name="Bone100" type="Sprite2D" parent="Shop/regBoneV/HBoxContainer/regBone"]
 position = Vector2(51, 88)
 scale = Vector2(0.105684, 0.105684)
 texture = ExtResource("3_nedhw")
 
-[node name="price" type="HBoxContainer" parent="Shop/regBone"]
+[node name="price" type="HBoxContainer" parent="Shop/regBoneV"]
 auto_translate_mode = 1
 layout_mode = 2
 theme = ExtResource("3_k6v5b")
 theme_override_constants/separation = 16
 alignment = 2
 
-[node name="val_price" type="Label" parent="Shop/regBone/price"]
+[node name="val_price" type="Label" parent="Shop/regBoneV/price"]
 auto_translate_mode = 1
 layout_mode = 2
 theme = ExtResource("3_k6v5b")
 text = "1"
 
-[node name="container" type="Control" parent="Shop/regBone/price"]
+[node name="container" type="Control" parent="Shop/regBoneV/price"]
 auto_translate_mode = 1
 clip_contents = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="Coin" type="Sprite2D" parent="Shop/regBone/price/container"]
+[node name="Coin" type="Sprite2D" parent="Shop/regBoneV/price/container"]
 position = Vector2(32, 32)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_gn87c")
 
-[node name="superBone" type="VBoxContainer" parent="Shop"]
+[node name="superBoneV" type="VBoxContainer" parent="Shop"]
 auto_translate_mode = 1
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Shop/superBone"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop/superBoneV"]
 auto_translate_mode = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="Shop/superBone/HBoxContainer"]
+[node name="superBone" type="Control" parent="Shop/superBoneV/HBoxContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="Bone100" type="Sprite2D" parent="Shop/superBone/HBoxContainer/Control"]
+[node name="Bone100" type="Sprite2D" parent="Shop/superBoneV/HBoxContainer/superBone"]
 position = Vector2(49, 82)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_w0abs")
 
-[node name="price" type="HBoxContainer" parent="Shop/superBone"]
+[node name="price" type="HBoxContainer" parent="Shop/superBoneV"]
 auto_translate_mode = 1
 layout_mode = 2
 theme = ExtResource("3_k6v5b")
 theme_override_constants/separation = 16
 alignment = 2
 
-[node name="val_price" type="Label" parent="Shop/superBone/price"]
+[node name="val_price" type="Label" parent="Shop/superBoneV/price"]
 auto_translate_mode = 1
 layout_mode = 2
 theme = ExtResource("3_k6v5b")
 text = "50"
 
-[node name="container" type="Control" parent="Shop/superBone/price"]
+[node name="container" type="Control" parent="Shop/superBoneV/price"]
 auto_translate_mode = 1
 clip_contents = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="Coin" type="Sprite2D" parent="Shop/superBone/price/container"]
+[node name="Coin" type="Sprite2D" parent="Shop/superBoneV/price/container"]
 position = Vector2(32, 32)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_gn87c")

@@ -12,7 +12,7 @@ var r : Dictionary = {
 	tres.QUARTZ : 0,
 	tres.DIAMOND : 0
 	}
-var raredrop:= 0.1
+var raredrop:= 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
